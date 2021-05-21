@@ -15,6 +15,11 @@ const routes = [
     component: Home,
   },
   {
+    path: "/notice",
+    name: "Notice",
+    component: () => import("@/components/notice/Notice.vue")
+  },
+  {
     path: "/qna",
     name: "qna",
     component: Qna,
@@ -60,6 +65,12 @@ const routes = [
         path: "/member/logout",
         name: "member-logout",
         component: Home,
+      }
+      ,
+      {
+        path: "/member/info",
+        name: "member-info",
+        component: () => import("@/components/member/MemberInfo.vue")
       }
     ,
     ],

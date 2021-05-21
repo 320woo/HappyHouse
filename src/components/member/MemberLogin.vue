@@ -40,7 +40,7 @@ export default {
       else this.$store.dispatch("login",{id:this.id, pwd:this.pwd});
 
       if(this.$store.state.user.email !== null){
-        console.log(this.$store.state.user.id + " " + "로그인성공");
+        console.log(this.$store.state.user.email + " " + "로그인성공");
         this.$router.push({ name: "Home" });
       }
       else{
