@@ -1,6 +1,6 @@
 <template>
   <div class="login" id="font">
-    <h1 class="underline" style="margin-top:20px">로그인</h1>
+    <b-img style="margin: 10px;" :src="require('@/assets/logo1.png')" fluid></b-img>
     <div class="login_form">
       <label for="id">ID</label><br>
       <input type="text" id="id" name="id" v-model="id" ref="id" /><br>
