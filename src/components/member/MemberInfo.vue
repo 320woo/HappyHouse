@@ -15,9 +15,10 @@
       <label for="">주소</label>
       <div class="view">{{ address }}</div>
       <div style="padding-top: 15px">
-        <!-- <router-link :to="`/qna/modify/${book.isbn}`" class="btn"><button id="btn_group" class="btn">수정</button></router-link>
-        <a href="#" class="btn" @click="deleteBook"><button id="btn_group" class="btn">삭제</button></a>
-        <router-link to="/qna/qna" class="btn"><button id="btn_group" class="btn">목록</button></router-link> -->
+        <!-- <router-link :to="`/qna/modify/${book.isbn}`" class="btn"><button id="btn_group" class="btn">수정</button></router-link> -->
+        <router-link :to="``" class="btn"><button id="btn_group" class="btn">수정</button></router-link>
+        <a href="#" class="btn"><button id="btn_group" class="btn">삭제</button></a>
+        <router-link to="/qna/qna" class="btn"><button id="btn_group" class="btn">목록</button></router-link>
       </div>
     </div>
   </div>
