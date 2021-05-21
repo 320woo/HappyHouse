@@ -12,6 +12,8 @@ export default new Vuex.Store({
     pwd: "",
     show: true,
     books: [],
+    boards: [],
+    board: {},
     book: {},
     comments: [],
     apts: [],
@@ -29,6 +31,12 @@ export default new Vuex.Store({
     },
     comments(state) {
       return state.comments;
+    },
+    boards(state) {
+      return state.boards;
+    },
+    board(state) {
+      return state.board;
     }
 
   },
@@ -47,6 +55,12 @@ export default new Vuex.Store({
     },
     setBook(state, payload) {
       state.book = payload;
+    },
+    setBoards(state, payload) {
+      state.boards = payload;
+    },
+    setBoard(state, payload) {
+      state.board = payload;
     },
     setComments(state, payload) {
       state.comments = payload;
@@ -115,6 +129,21 @@ export default new Vuex.Store({
     getBook(context, payload) {
       http.get(payload).then(({ data }) => {
         context.commit("setBook", data);
+      });
+    },
+    getBoards(context) {
+      http
+        .get("/board")
+        .then(({ data }) => {
+          context.commit("setBoards", data);
+        })
+        .catch(() => {
+          alert("에러발생!");
+        });
+    },
+    getBoard(context, payload) {
+      http.get(payload).then(({ data }) => {
+        context.commit("setBoard", data);
       });
     },
     getComments(context, payload) {

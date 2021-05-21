@@ -3,17 +3,17 @@
     <h1 class="underline">게시글 정보</h1>
     <div class="regist_form">
       <label for="isbn">번호</label>
-      <div class="view">{{ book.isbn }}</div>
+      <div class="view">{{ board.isbn }}</div>
       <label for="title">제목</label>
-      <div class="view">{{ book.title }}</div>
+      <div class="view">{{ board.title }}</div>
       <label for="author">글쓴이</label>
-      <div class="view">{{ book.author }}</div>
+      <div class="view">{{ board.author }}</div>
       <label for="writtendate">작성일</label>
-      <div class="view">{{ book.writtendate }}</div>
+      <div class="view">{{ board.writtendate }}</div>
       <label for="content">내용</label>
-      <div class="view" v-html="enterToBr(book.content)"><textarea></textarea></div>
+      <div class="view" v-html="enterToBr(board.content)"><textarea></textarea></div>
       <div style="padding-top: 15px">
-        <router-link :to="`/qna/modify/${book.isbn}`" class="btn"><button id="btn_group" class="btn">수정</button></router-link>
+        <router-link :to="`/qna/modify/${board.isbn}`" class="btn"><button id="btn_group" class="btn">수정</button></router-link>
         <a href="#" class="btn" @click="deleteBook"><button id="btn_group" class="btn">삭제</button></a>
         <router-link to="/qna/qna" class="btn"><button id="btn_group" class="btn">목록</button></router-link>
       </div>
@@ -28,7 +28,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: "viewdetial",
   computed: {
-      ...mapGetters(["book"])
+      ...mapGetters(["board"])
   },
 
   data() {
@@ -42,7 +42,7 @@ export default {
   },
   created() {
     if (this.type === "modify") {
-      http.get(`/post/${this.$route.params.isbn}`).then(({ data }) => {
+      http.get(`/board/${this.$route.params.isbn}`).then(({ data }) => {
         this.isbn = data.isbn;
         this.title = data.title;
         this.author = data.author;
@@ -55,13 +55,13 @@ export default {
   methods: {
     deleteBook() {
       if (confirm("정말로 삭제?")) {
-        http.delete(`/post/${this.book.isbn}`).then(({ data }) => {
+        http.delete(`/board/${this.board.isbn}`).then(({ data }) => {
           let msg = "삭제 처리시 문제가 발생했습니다.";
           if (data === "success") {
             msg = "삭제가 완료되었습니다.";
           }
           alert(msg);
-          this.$router.push("/qna/qna");
+          this.$router.push("/borad");
         });
       }
     },

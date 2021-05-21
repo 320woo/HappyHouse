@@ -1,6 +1,6 @@
 <template> 
   <div id=font>
-    <h1 class="underline margin-10">게시판 목록</h1>
+    <h1 class="underline margin-10">공지사항</h1>
     <div style="text-align: right">
       <button @click="movePage" class="margin-10 btn">글쓰기</button>
     </div>
@@ -24,14 +24,14 @@
         </thead>
         <tbody>
           <list-row
-            v-for="(book, index) in books"
+            v-for="(board, index) in boards"
             :key="index"
-            :isbn="book.isbn"
-            :title="book.title"
-            :author="book.author"
-            :writtendate="book.writtendate"
-            :content="book.content"
-            :hit="book.hit"
+            :isbn="board.isbn"
+            :title="board.title"
+            :author="board.author"
+            :writtendate="board.writtendate"
+            :content="board.content"
+            :hit="board.hit"
           />
         </tbody>
       </table>
@@ -41,22 +41,22 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ListRow from "@/components/qna/ListRow.vue";
+import ListRow from "@/components/board/ListRow.vue";
 
 export default {
-  name: "booklist",
+  name: "boardlist",
   components: {
     ListRow
   },
   computed: {
-    ...mapGetters(["books"])
+    ...mapGetters(["boards"])
   },
   created() {
-    this.$store.dispatch("getBooks");
+    this.$store.dispatch("getBoards");
   },
   methods: {
     movePage() {
-      this.$router.push({ name: "Qna-create" });
+      this.$router.push({ name: "Board-create" });
     }
   }
 };

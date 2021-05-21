@@ -3,7 +3,7 @@
     <td>{{ isbn }}</td>
     <td>{{ title }}</td>
     <td>
-      <router-link @click="look" :to="`/qna/view?isbn=${isbn}`">{{ author }}</router-link>
+      <router-link @click="look" :to="`/board/view?isbn=${isbn}`">{{ author }}</router-link>
     </td>
     <td>{{ writtendate }}</td>
     <td>{{  hit  }}</td>

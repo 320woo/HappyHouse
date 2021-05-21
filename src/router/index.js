@@ -4,6 +4,7 @@ import Member from "../views/Member.vue";
 import HouseInfo from "../views/HouseInfo.vue";
 import Home from "../views/Home.vue";
 import Qna from "../views/qna.vue";
+import Board from "../views/board.vue";
 
 Vue.use(VueRouter);
 
@@ -15,9 +16,31 @@ const routes = [
     component: Home,
   },
   {
-    path: "/notice",
-    name: "Notice",
-    component: () => import("@/components/notice/Notice.vue")
+    path: "/board",
+    name: "board",
+    component: Board,
+    children: [
+        {
+          path: "/board",
+          name: "Board",
+          component: () => import("@/components/board/Board.vue")
+        },
+        {
+          path: "/board/create",
+          name: "Board-create",
+          component: () => import("@/components/board/BoardCreate.vue")
+        },
+        {
+          path: "/board/view",
+          name: "Board-view",
+          component: () => import("@/components/board/BoardView.vue")
+        },
+        {
+          path: "/board/modify/:isbn",
+          name: "Board-modify",
+          component: () => import("@/components/board/BoardModify.vue")
+        }
+    ]
   },
   {
     path: "/qna",
