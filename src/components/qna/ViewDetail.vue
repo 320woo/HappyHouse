@@ -48,6 +48,7 @@ export default {
         this.author = data.author;
         this.writtendate= data.writtendate;
         this.content = data.content;
+        this.hit = this.hit + 1;
       });
     }
   },

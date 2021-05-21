@@ -8,10 +8,11 @@
       <table id="book-list">
         <colgroup>
           <col style="width: 5%" />
+          <col style="width: 30%" />
           <col style="width: 20%" />
-          <col style="width: 40%" />
           <col style="width: 20%" />
           <col style="width: 15%" />
+          <col style="width: 10%" />
         </colgroup>
         <thead>
           <tr>
@@ -20,6 +21,7 @@
             <th>글쓴이</th>
             <th>작성일</th>
             <th>내용</th>
+            <th>조회수</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +33,7 @@
             :author="book.author"
             :writtendate="book.writtendate"
             :content="book.content"
+            :hit="book.hit"
           />
         </tbody>
       </table>

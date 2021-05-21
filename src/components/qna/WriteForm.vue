@@ -2,9 +2,6 @@
   <div class="regist">
     <h1 class="underline">Qna 글쓰기</h1>
         <div class="regist_form">
-      <label for="isbn">번호</label>
-      <input v-if="type == 'create'" type="text" id="isbn" name="isbn" v-model="isbn" ref="isbn" />
-      <input v-else type="text" id="isbn" name="isbn" v-model="isbn" ref="isbn" /><br />
       <label for="title">제목</label>
       <input type="text" id="title" name="title" v-model="title" ref="title" /><br />
       <label for="author">글쓴이</label>
@@ -55,7 +52,6 @@ export default {
       // isbn, 제목, 저자, 가격, 설명이 없을 경우 각 항목에 맞는 메세지를 출력
       let err = true;
       let msg = "";
-      !this.isbn && ((msg = "번호를 입력해주세요"), (err = false), this.$refs.isbn.focus());
       err && !this.title && ((msg = "제목을 입력해주세요"), (err = false), this.$refs.title.focus());
       err && !this.author && ((msg = "로그인을 해주세요"), (err = false), this.$refs.author.focus());
       err && !this.writtendate && ((msg = "작성일을 입력해주세요"), (err = false), this.$refs.writtendate.focus());

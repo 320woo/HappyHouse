@@ -37,6 +37,7 @@ export default {
   created() {
     this.isbn = this.$route.query.isbn;
     this.$store.dispatch("getBook", `/post/${this.isbn}`);
+    
   },
   methods: {
      onModifyComment(comment) {

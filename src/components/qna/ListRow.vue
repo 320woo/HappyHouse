@@ -3,10 +3,11 @@
     <td>{{ isbn }}</td>
     <td>{{ title }}</td>
     <td>
-      <router-link :to="`/qna/view?isbn=${isbn}`">{{ author }}</router-link>
+      <router-link @click="look" :to="`/qna/view?isbn=${isbn}`">{{ author }}</router-link>
     </td>
     <td>{{ writtendate }}</td>
     <td>{{ content }}</td>
+    <td>{{  hit  }}</td>
   </tr>
 </template>
 
@@ -18,11 +19,15 @@ export default {
     title: String,
     author: String,
     writtendate: String,
-    content: String
+    content: String,
+    hit : Number
   },
   methods: {
     numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+    look() {
+      this.hit = this.hit + 1;
     }
   }
 };
