@@ -53,7 +53,7 @@ export default {
     }
   },
   methods: {
-    deleteBook() {
+    deleteMember() {
       if (confirm("정말로 삭제?")) {
         http.delete(`/board/${this.board.isbn}`).then(({ data }) => {
           let msg = "삭제 처리시 문제가 발생했습니다.";
@@ -61,7 +61,7 @@ export default {
             msg = "삭제가 완료되었습니다.";
           }
           alert(msg);
-          this.$router.push("/board");
+          this.$router.push("/");
         });
       }
     },

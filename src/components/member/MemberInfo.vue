@@ -17,7 +17,7 @@
       <div style="padding-top: 15px">
         <!-- <router-link :to="`/qna/modify/${book.isbn}`" class="btn"><button id="btn_group" class="btn">수정</button></router-link> -->
         <router-link :to="``" class="btn"><button id="btn_group" class="btn">수정</button></router-link>
-        <a href="#" class="btn"><button id="btn_group" class="btn">삭제</button></a>
+        <a href="#" class="btn"><button id="btn_group" class="btn">회원탈퇴</button></a>
         
       </div>
     </div>
@@ -57,7 +57,19 @@ export default {
     },
     enterToBr(str) {
       if (str) return str.replace(/(?:\r\n|\r|\n)/g, "<br />");
-    }
+    },
+    // deleteMember() {
+    //   if (confirm("탈퇴 하시겠습니까?")) {
+    //     http.delete(`/board/${this.board.isbn}`).then(({ data }) => {
+    //       let msg = "삭제 처리시 문제가 발생했습니다.";
+    //       if (data === "success") {
+    //         msg = "삭제가 완료되었습니다.";
+    //       }
+    //       alert(msg);
+    //       this.$router.push("/");
+    //     });
+    //   }
+    // },
   }
 };
 </script>
