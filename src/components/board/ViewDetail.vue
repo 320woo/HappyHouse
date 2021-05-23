@@ -1,6 +1,6 @@
 <template>
   <div class="regist" id="font">
-    <h1 class="underline">게시글 정보</h1>
+    <h1 class="underline">공지사항 정보</h1>
     <div class="regist_form">
       <label for="isbn">번호</label>
       <div class="view">{{ board.isbn }}</div>
@@ -13,9 +13,9 @@
       <label for="content">내용</label>
       <div class="view" v-html="enterToBr(board.content)"><textarea></textarea></div>
       <div style="padding-top: 15px">
-        <router-link :to="`/qna/modify/${board.isbn}`" class="btn"><button id="btn_group" class="btn">수정</button></router-link>
+        <router-link :to="`/board/modify/${board.isbn}`" class="btn"><button id="btn_group" class="btn">수정</button></router-link>
         <a href="#" class="btn" @click="deleteBook"><button id="btn_group" class="btn">삭제</button></a>
-        <router-link to="/qna/qna" class="btn"><button id="btn_group" class="btn">목록</button></router-link>
+        <router-link to="/board" class="btn"><button id="btn_group" class="btn">목록</button></router-link>
       </div>
     </div>
   </div>
@@ -61,7 +61,7 @@ export default {
             msg = "삭제가 완료되었습니다.";
           }
           alert(msg);
-          this.$router.push("/borad");
+          this.$router.push("/board");
         });
       }
     },

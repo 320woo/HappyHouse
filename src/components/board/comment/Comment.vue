@@ -13,7 +13,7 @@
 import http from "@/util/http-common";
 
 export default {
-  name: "comment",
+  name: "bcomment",
   data() {
     return {
       isShow: true
@@ -32,16 +32,20 @@ export default {
     },
     deleteComment() {
       if (confirm("정말로 삭제?")) {
-        http.delete(`/comment/${this.comment.comment_no}`).then(({ data }) => {
+        http.delete(`/bcomment/${this.comment.comment_no}`).then(({ data }) => {
           let msg = "삭제 처리시 문제가 발생했습니다.";
           if (data === "success") {
             msg = "삭제가 완료되었습니다.";
           }
           alert(msg);
           // 도서평(댓글) 얻기.
-          this.$store.dispatch("getComments", `/comment/${this.comment.isbn}`);
+          this.$store.dispatch("getBComments", `/bcomment/${this.comment.isbn}`);
         });
       }
+      this.moveList();
+    },
+    moveList() {
+      this.$router.push("/board");
     },
     enterToBr(str) {
       if (str) return str.replace(/(?:\r\n|\r|\n)/g, "<br />");

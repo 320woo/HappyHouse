@@ -69,6 +69,9 @@ export default new Vuex.Store({
     setComments(state, payload) {
       state.comments = payload;
     },
+    setBComments(state, payload) {
+      state.bcomments = payload;
+    },
 
     ////////////////////////////////////////////////////
     GET_APT_LIST(state, apts) {
@@ -153,6 +156,11 @@ export default new Vuex.Store({
     getComments(context, payload) {
       http.get(payload).then(({ data }) => {
         context.commit("setComments", data);
+      });
+    },
+    getBComments(context, payload) {
+      http.get(payload).then(({ data }) => {
+        context.commit("setBComments", data);
       });
     },
 

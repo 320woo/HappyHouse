@@ -16,7 +16,7 @@
 import http from "@/util/http-common";
 
 export default {
-  name: "commentwrite",
+  name: "bcommentwrite",
   data() {
     return {
       // 차후 작성자 이름은 로그인 구현후 로그인한 사용자로 바꾼다.
@@ -31,7 +31,7 @@ export default {
   methods: {
     registComment() {
       http
-        .post("/comment/", {
+        .post("/bcomment/", {
           user_name: this.user_name,
           comment: this.comment,
           isbn: this.isbn
@@ -47,12 +47,13 @@ export default {
           this.comment = "";
 
           // 도서평(댓글) 얻기.
-          this.$store.dispatch("getComments", `/comment/${this.isbn}`);
+          this.$store.dispatch("getBComments", `/bcomment/${this.isbn}`);
         });
+        this.moveList();
     },
     updateComment() {
       http
-        .put(`/comment`, {
+        .put(`/bcomment`, {
           comment_no: this.modifyComment.comment_no,
           comment: this.modifyComment.comment
         })
@@ -64,9 +65,13 @@ export default {
           alert(msg);
 
           // 도서평(댓글) 얻기.
-          this.$store.dispatch("getComments", `/comment/${this.modifyComment.isbn}`);
+          this.$store.dispatch("getBComments", `/bcomment/${this.modifyComment.isbn}`);
           this.$emit("modify-comment-cancel", false);
         });
+        this.moveList();
+    },
+    moveList() {
+      this.$router.push("/board");
     },
     updateCommentCancel() {
       this.$emit("modify-comment-cancel", false);

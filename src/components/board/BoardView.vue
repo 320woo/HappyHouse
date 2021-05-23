@@ -7,7 +7,7 @@
       :modifyComment="this.modifyComment"
       @modify-comment-cancel="onModifyCommentCancel"
     />
-    <comment v-for="(comment, index) in comments" :key="index" :comment="comment" @modify-comment="onModifyComment" />
+    <comment v-for="(comment, index) in bcomments" :key="index" :comment="comment" @modify-comment="onModifyComment" />
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["comments"])
+    ...mapGetters(["bcomments"])
   },
   components : {
     ViewDetail,
