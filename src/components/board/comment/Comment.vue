@@ -3,7 +3,9 @@
     <div class="head">{{ comment.user_name }} ({{ comment.comment_time }})</div>
     <div class="content" v-html="enterToBr(comment.comment)"></div>
     <!-- 로그인 기능 구현 후 로그인한 자신의 글에만 보이게 한다. -->
-    <div class="cbtn"><label @click="modifyCommentView"><button>수정</button></label> | <label @click="deleteComment">삭제</label></div>
+    <div class="cbtn"><label @click="modifyCommentView">
+      <button class="cbtn btn">수정</button></label> | 
+      <label @click="deleteComment"><button class="cbtn btn">삭제</button></label></div>
   </div>
 </template>
 

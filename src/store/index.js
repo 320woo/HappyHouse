@@ -16,6 +16,7 @@ export default new Vuex.Store({
     board: {},
     book: {},
     comments: [],
+    bcomments: [],
     apts: [],
     apt: Object,
   },
@@ -31,6 +32,9 @@ export default new Vuex.Store({
     },
     comments(state) {
       return state.comments;
+    },
+    bcomments(state) {
+      return state.bcomments;
     },
     boards(state) {
       return state.boards;
